@@ -10,7 +10,7 @@ export class Shelf {
         this.slots = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
         this.putBook = (book) => {
             let slot = Math.floor(Math.random() * this.slots.length);
-            slot = this.slots.splice(slot)[0];
+            slot = this.slots.splice(slot)[0]; // Need to add validation for shelf filling up, this isn't working.
             console.log(`PUTTING BOOK IN SLOT ${slot} IN SHELF ${this.shelf}`);
             book.setShelf(this.shelf);
             showBookInDom(book, this.shelfDom, slot);

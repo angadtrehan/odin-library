@@ -21,6 +21,7 @@ dialogue.addEventListener('close', () => {
     const bookData = JSON.parse(dialogue.returnValue);
     const book = new Book(bookData.name, bookData.author, bookData.pages, bookData.read);
     console.log(`Book: ${book.returnShortInfo()}`);
+    counter++;
 });
 
 submitButton.addEventListener('click', (e) => {
