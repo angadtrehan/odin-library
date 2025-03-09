@@ -1,0 +1,255 @@
+*,
+*::before, 
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 12pt;
+    line-height: 1.5;
+}
+
+body > dialog {
+    position: absolute;
+    margin: auto;
+    border: 0;
+    background-color: transparent;
+    width: 30vw;
+    height: 70vh;
+    padding: 30px;
+}
+body > dialog > form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
+    background-color: rgb(0, 73, 0);
+    padding: 50px;
+    border-radius: 20px;
+    position: relative;
+    height: 100%;
+    color: white;
+    box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.372) inset, 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+.form-field {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+body > dialog > form input:not([type="checkbox"]) {
+    height: 2rem;
+    line-height: 1.5rem;
+    font-size: 0.9rem;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    color: white;
+    border-bottom: 2px solid white;
+}
+body > dialog > form input:not([type="checkbox"]):invalid {
+    border-bottom: 2px solid rgb(83, 13, 13);
+}
+body > dialog > form input:not([type="checkbox"]):invalid:placeholder-shown {
+    border-bottom: 2px solid white;
+}
+body > dialog > form input:required + .validity::before {
+    content: "*";
+    color: white;
+    position:absolute;
+    top: 50%;
+    right: 0;
+}
+#read-field {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+#read-field > .inputs {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10%;
+}
+#read-field > button {
+    height: 200%;
+    width: 60%;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    background-color: rgb(83, 40, 13);
+    border-radius: 10px;
+    color: white;
+}
+#close-btn {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    height: 1.5rem;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    color: rgb(213, 211, 211);
+}
+::backdrop {
+    backdrop-filter: blur(5px);
+    background-color: rgba(85, 85, 85, 0.243);
+}
+
+.bookshelves {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+}
+.bookshelves > * {
+    height: 100%;
+    border: 10px solid rgb(83, 40, 13);
+    background-color: rgb(83, 40, 13);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.462) inset, -5px -5px 10px rgba(0, 0, 0, 0.268) inset;
+}
+#left {
+    grid-column: 1/2;
+    grid-row: 1/4;
+    border-right: 5px solid rgb(83, 40, 13);
+}
+#right {
+    grid-column: 3/4;
+    grid-row: 1/4;
+    border-left: 5px solid rgb(83, 40, 13);
+}
+#top {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    border-left: 5px solid rgb(83, 40, 13);
+    border-right: 5px solid rgb(83, 40, 13);
+    border-bottom: 5px solid rgb(83, 40, 13);
+}
+#bottom {
+    grid-column: 2/3;
+    grid-row: 3/4;
+    border-left: 5px solid rgb(83, 40, 13);
+    border-right: 5px solid rgb(83, 40, 13);
+    border-top: 5px solid rgb(83, 40, 13);
+}
+#center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid rgb(83, 40, 13);
+}
+#add-book {
+    height: 20vh;
+    width: 20vh;
+    justify-self: center;
+    border: 0;
+    border-radius: 50%;
+    font-size: 3rem;
+    background-color: rgb(1, 57, 1);
+    color: rgb(255, 187, 0);
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.803);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    margin: auto;
+}
+.bookshelf {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+    justify-content: space-evenly;
+}
+.shelf {
+    height: 100%;
+    background-color: rgba(47, 22, 6, 0.611);
+    border: 0.5px solid rgba(0, 0, 0, 0.384);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 5%);
+    align-items: end;
+    justify-items: stretch;
+    gap: 1px;
+}
+.book {
+    height: 90%;
+    background: gold;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: relative;
+}
+.top-book, .bottom-book {
+    background-color: rgb(128, 0, 0);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.523) inset;
+}
+.top-book {
+    flex: 3;
+}
+.bottom-book {
+    flex: 1;
+}
+
+.book > span {
+    visibility: hidden;
+}
+.book > span::before {
+    position: absolute;
+    content: var(--book-info, "");
+    bottom: 0;
+    left: 100%;
+    z-index: 10000;
+    background-color: rgba(128, 128, 128, 0.567);
+    font-size: 0.7rem;
+    width:max-content;
+    padding: 2px 5px;
+    color: white;
+}
+.bottom-book:hover ~ span::before {
+    content: "Remove book";
+    visibility: visible;
+}
+
+.book-info-dialog {
+    backdrop-filter: blur(5px);
+    background-color: rgb(73, 35, 11);
+    border-radius: 15px;
+    position: absolute;
+    margin: auto;
+    width: 30vw;
+    height: 70vh;
+    border: 0;
+    outline: 0;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.683), 10px 10px 20px rgba(0, 0, 0, 0.326) inset;
+    color: white;
+}
+.book-info-dialog > .information {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-evenly;
+    margin: auto 50px;
+    gap: 10px;
+}
+.book-info-dialog > .information > button {
+    width: 70%;
+    height: 5vh;
+    line-height: 2rem;
+    border: 0;
+    outline: 0;
+    background-color: rgb(1, 57, 1);
+    color: white;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    align-self: center;
+    border-radius: 10px;
+}
