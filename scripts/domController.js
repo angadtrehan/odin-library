@@ -50,11 +50,11 @@ export function showBookInDom(book, shelfDom, slot) {
         title.className = "title";
 
         const author = document.createElement("p");
-        author.textContent = `${book.author}`;
+        author.textContent = `by ${book.author}`;
         author.className = "author";
 
         const pages = document.createElement("p");
-        pages.textContent = `${book.pages == "" ? "--" : book.pages}`;
+        pages.textContent = `${book.pages == "" ? "--" : book.pages} pages`;
         pages.className = "pages";
 
         const read = document.createElement("p");
